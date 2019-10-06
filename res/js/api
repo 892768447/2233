@@ -1,0 +1,59 @@
+function get_live2d_data(p, model, r18) {
+    // p = 22 or 33
+    var persons = [22, 33];
+    if (persons.indexOf(p) === -1) {
+        p = persons[Math.floor(Math.random() * persons.length + 1) - 1];
+    }
+    var idle3 = p === 22 ? 100 : 1000;
+    var tap1 = p === 22 ? 150 : 500;
+    var tap2 = p === 22 ? 100 : 200;
+    var ra = r18 === 1 ? Math.ceil(Math.random() * 15) : Math.ceil(Math.random() * 14);
+    return {
+        "model": p + "/" + p + ".v2.moc",
+        "textures": [
+            p + "/textures/texture_00.png",
+            p + "/textures/texture_01/" + (model === "rand" ? ra : 1) + ".png",
+            p + "/textures/texture_02/" + (model === "rand" ? ra : 1) + ".png",
+            p + "/textures/texture_03/" + (model === "rand" ? ra : 12) + ".png"
+        ],
+        "hit_areas_custom": {
+            "head_x": [-0.35, 0.6],
+            "head_y": [0.19, -0.2],
+            "body_x": [-0.3, -0.25],
+            "body_y": [0.3, -0.9]
+        },
+        "layout": {
+            "center_x": -0.05,
+            "center_y": 0.25,
+            "height": 2.7
+        },
+        "motions": {
+            "idle": [{
+                    "file": p + "/" + p + ".v2.idle-01.mtn",
+                    "fade_in": 2000,
+                    "fade_out": 2000
+                }, {
+                    "file": p + "/" + p + ".v2.idle-02.mtn",
+                    "fade_in": 2000,
+                    "fade_out": 2000
+                }, {
+                    "file": p + "/" + p + ".v2.idle-03.mtn",
+                    "fade_in": idle3,
+                    "fade_out": idle3
+                }
+            ],
+            "tap_body": [{
+                    "file": p + "/" + p + ".v2.touch.mtn",
+                    "fade_in": tap1,
+                    "fade_out": tap2
+                }
+            ],
+            "thanking": [{
+                    "file": p + "/" + p + ".v2.thanking.mtn",
+                    "fade_in": 2000,
+                    "fade_out": 2000
+                }
+            ]
+        }
+    }
+}
