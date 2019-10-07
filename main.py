@@ -16,6 +16,7 @@ import urllib.request
 from random import choice, randint
 
 from PyQt5.QtCore import QUrl, QUrlQuery, QThread, Qt, pyqtSlot
+from PyQt5.QtGui import QDesktopServices
 from PyQt5.QtWebChannel import QWebChannel
 from PyQt5.QtWebEngineCore import QWebEngineUrlRequestInterceptor
 from PyQt5.QtWebEngineWidgets import QWebEngineView, QWebEngineProfile
@@ -171,6 +172,10 @@ class Window(QWebEngineView):
         self.http_server.terminate()
         self.http_server.deleteLater()
         super(Window, self).close()
+
+    @pyqtSlot(str)
+    def open(self, url):
+        QDesktopServices.openUrl(QUrl(url))
 
     @pyqtSlot()
     def stayTop(self):

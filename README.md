@@ -18,3 +18,6 @@
 
 ## 使用的开源项目
  - [poster-girl-l2d-2233](https://github.com/xb2016/poster-girl-l2d-2233)
+
+## 效果图
+![waifu](res/waifu.gif)

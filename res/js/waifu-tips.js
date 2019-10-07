@@ -31,6 +31,9 @@ $('.waifu-tool .fa-street-view').click(function () {
         loadlive2d('live2d', 'api?p=22&model=rand&r18=' + l2d.r18);
     showMessage('我的新衣服好看嘛', 4000);
 });
+$('.waifu-tool .fa-info-circle').click(function () {
+    window.Bridge.open('https://github.com/892768447/2233');
+});
 $('.waifu-tool .fa-close').click(function () {
     sessionStorage.setItem('waifu-dsiplay', 'none');
     showMessage('愿你有一天能与重要的人重逢', 2000);
